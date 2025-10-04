@@ -1,0 +1,314 @@
+<script setup lang="ts">
+import { ref, Text } from 'vue'
+
+defineProps<{ msg: string }>()
+const userInput = ref("")
+const output = ref("Generated post from url ${userInput.value}")
+
+const emoji = ref("НИКАКИХ ЕМОДЗИ")
+
+const style = ref("Auto")
+const setStyle = (val: string) => {
+  style.value = val
+}
+
+const textSize = ref("")
+const setTextSize = (val: string) => {
+  textSize.value = val
+}
+
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(output.value)
+    alert("Text copied")
+  }catch (err) {
+    alert("Error")
+  }
+}
+
+const generatePost = async () => {
+  output.value = `Please wait. Generate has started`
+
+  try {
+    const res = await fetch("http://localhost:5000/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ 
+        url: userInput.value,
+        emoji: emoji.value,
+        style: style.value,
+        text_size: textSize.value
+      })
+    })
+    const data = await res.json()
+    output.value = data.post
+  } catch (err)
+  {
+    output.value = "Error generate"
+    console.error(err)
+  }
+}
+
+</script>
+
+<template>
+  <div>
+    <div class="main_div">
+      <div class="left_div">
+        <h2>Generate Perfect Social Posts</h2>
+        <p>Enter your URL and customize the content style</p>
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
+          <input id="query" class="input" type="search" v-model="userInput" placeholder="https://example.com"/>
+        </div>
+        <div class="card">
+        <div>
+          <h2>Text style</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueAuto" v-model="style" name="TextStyleBox" value="Auto" checked="true"/>
+              <p class="text">Auto</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueofficial" v-model="style" name="TextStyleBox" value="official"/>
+              <p class="text">official</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCasual" v-model="style" name="TextStyleBox" value="Casual"/>
+              <p class="text">Casual</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCreative" v-model="style" name="TextStyleBox" value="creative"/>
+              <p class="text">creative</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueProfessional" v-model="style" name="TextStyleBox" value="Professional"/>
+              <p class="text">Professional</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valuefriendly" v-model="style" name="TextStyleBox" value="friendly"/>
+              <p class="text">friendly</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueurgent" v-model="style" name="TextStyleBox" value="urgent"/>
+              <p class="text">urgent</p>
+            </label>
+          </div>
+          <p>Выбран стиль: {{ style }}</p>
+        </div>
+        <div>
+          <h2>Use emoji?</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueNo" v-model="emoji" name="UseEmojiBox" value="НИКАКИХ ЕМОДЗИ" checked="true"/>
+              <p class="text">No</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueYes" v-model="emoji" name="UseEmojiBox" value="да"/>
+              <p class="text">Yes</p>
+            </label>
+          </div>
+          <p>Выбрано: {{ emoji }}</p>
+        </div>
+        <div>
+          <h2>Text size</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueAuto" v-model="textSize" name="TextSizeBox" value="Large"/>
+              <p class="text">Large</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueofficial" v-model="textSize" name="TextSizeBox" value="Middle" checked="true"/>
+              <p class="text">Middle</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCasual" v-model="textSize" name="TextSizeBox" value="Minimum"/>
+              <p class="text">Minimum</p>
+            </label>
+          </div>
+          <p>Размер текста {{ textSize }}</p>
+        </div>
+      </div>
+      <button @click="generatePost">Generate post</button>
+      </div>
+      <div class="right_div">
+        <div>
+        <div class="border_text">
+          <P>{{ output }}</P>
+        </div>
+        <button @click="copyToClipboard">Copy text</button>
+      </div>
+      <div class="radio-input">
+        <h3>Post created: 0</h3>
+        <h3>Unic people: 1</h3>
+        <h3>Month users: 0</h3>
+      </div>
+      </div>
+    </div>
+    <div class="bottomInfo">
+        <h3>Post Crafter</h3>
+        <p>AI-Powered Social Media Content Generator</p>
+        <p>© 2025 Copiright</p>
+    </div>
+</div>
+</template>
+
+<style scoped>
+.read-the-docs {
+  color: #888;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <div class="main_div">
+      <div class="left_div">
+        <h2>Generate Perfect Social Posts</h2>
+        <p>Enter your URL and customize the content style</p>
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
+          <input id="query" class="input" type="search" v-model="userInput" placeholder="https://example.com"/>
+        </div>
+        <div class="card">
+        <div>
+          <h2>Text style</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueAuto" v-model="style" name="TextStyleBox" value="Auto" checked="true"/>
+              <p class="text">Auto</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueofficial" v-model="style" name="TextStyleBox" value="official"/>
+              <p class="text">official</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCasual" v-model="style" name="TextStyleBox" value="Casual"/>
+              <p class="text">Casual</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCreative" v-model="style" name="TextStyleBox" value="creative"/>
+              <p class="text">creative</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueProfessional" v-model="style" name="TextStyleBox" value="Professional"/>
+              <p class="text">Professional</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valuefriendly" v-model="style" name="TextStyleBox" value="friendly"/>
+              <p class="text">friendly</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueurgent" v-model="style" name="TextStyleBox" value="urgent"/>
+              <p class="text">urgent</p>
+            </label>
+          </div>
+          <p>Выбран стиль: {{ style }}</p>
+        </div>
+        <div>
+          <h2>Use emoji?</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueNo" v-model="emoji" name="UseEmojiBox" value="НИКАКИХ ЕМОДЗИ" checked="true"/>
+              <p class="text">No</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueYes" v-model="emoji" name="UseEmojiBox" value="да"/>
+              <p class="text">Yes</p>
+            </label>
+          </div>
+          <p>Выбрано: {{ emoji }}</p>
+        </div>
+        <div>
+          <h2>Text size</h2>
+          <div class="radio-input">
+            <label class="label">
+              <input type="radio" id="valueAuto" v-model="textSize" name="TextSizeBox" value="Large"/>
+              <p class="text">Large</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueofficial" v-model="textSize" name="TextSizeBox" value="Middle" checked="true"/>
+              <p class="text">Middle</p>
+            </label>
+            <label class="label">
+              <input type="radio" id="valueCasual" v-model="textSize" name="TextSizeBox" value="Minimum"/>
+              <p class="text">Minimum</p>
+            </label>
+          </div>
+          <p>Размер текста {{ textSize }}</p>
+        </div>
+      </div>
+      <button @click="generatePost">Generate post</button>
+      </div>
+      <div class="right_div">
+        <div>
+        <div class="border_text">
+          <P>{{ output }}</P>
+        </div>
+        <button @click="copyToClipboard">Copy text</button>
+      </div>
+      <div class="radio-input">
+        <h3>Post created: 0</h3>
+        <h3>Unic people: 1</h3>
+        <h3>Month users: 0</h3>
+      </div>
+      </div>
+    </div>
+    <div class="bottomInfo">
+        <h3>Post Crafter</h3>
+        <p>AI-Powered Social Media Content Generator</p>
+        <p>© 2025 Copiright</p>
+    </div>
+</div>

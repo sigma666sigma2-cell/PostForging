@@ -1,0 +1,95 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background-color: #141414;
+}
+h3 {
+  color: aliceblue;
+}
+h2 {
+  color: aliceblue;
+}
+p {
+  color: aliceblue;
+}
+span {
+  color: aliceblue;
+}
+
+.topnav {
+  background: #222;
+  padding: 10px 20px;
+}
+
+.logo {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex: 1;
+  gap: 20px;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.subtitle {
+  opacity: 0.6;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.url-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.generate-btn,
+.copy-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+}
+
+.output-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 6px;
+  min-height: 200px;
+}
+
+.bottomInfo {
+  text-align: center;
+  padding: 15px;
+}

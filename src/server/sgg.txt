@@ -1,0 +1,50 @@
+<template>
+  <div>
+
+  </div>
+  <div>
+    <div class="card">
+    <input v-model="userInput" placeholder="https://example.com"/>
+    <div>
+      <h2>Use emoji?</h2>
+      <input type="checkbox" @change="toggleEmoji" />
+      <p>Выбрано: {{ emoji }}</p>
+    </div>
+    <div>
+      <h2>Text style</h2>
+      <button @click="setStyle('official')">official</button>
+      <button @click="setStyle('Casual')">Casual</button>
+      <button @click="setStyle('creative')">creative</button>
+      <button @click="setStyle('Professional')">Professional</button>
+      <button @click="setStyle('friendly')">friendly</button>
+      <button @click="setStyle('urgent')">urgent</button>
+      <p>Выбран стиль: {{ style }}</p>
+    </div>
+    <div>
+      <h2>Text size</h2>
+      <button @click="setTextSize('large')">large</button>
+      <button @click="setTextSize('middle')">middle</button>
+      <button @click="setTextSize('minimum')">minimum</button>
+      <p>Размер текста {{ textSize }}</p>
+    </div>
+    <button @click="generatePost">Generate post</button>
+    <div>
+      <div>
+        <P>{{ output }}</P>
+      </div>
+      <button @click="copyToClipboard">Copy text</button>
+    </div>
+  </div>
+  <div>
+    <h3>Post created: 0</h3>
+    <h3>Unic people: 1</h3>
+    <h3>Month users: 0</h3>
+  </div>
+  <div class="bottomInfo">
+      <h3>Post forger</h3>
+      <p>AI-Powered Social Media Content Generator</p>
+      <p>© 2025 Copiright</p>
+    </div>
+  </div>
+  
+</template>

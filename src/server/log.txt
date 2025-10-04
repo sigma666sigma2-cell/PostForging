@@ -1,0 +1,26 @@
+←[32mINFO←[0m:     Will watch for changes in these directories: ['D:\\VueApp\\PostForging\\src\\server']
+←[32mINFO←[0m:     Uvicorn running on ←[1mhttp://0.0.0.0:5000←[0m (Press CTRL+C to quit)
+←[32mINFO←[0m:     Started reloader process [←[36m←[1m11520←[0m] using ←[36m←[1mStatReload←[0m
+←[32mINFO←[0m:     Started server process [←[36m12800←[0m]
+←[32mINFO←[0m:     Waiting for application startup.
+←[32mINFO←[0m:     Application startup complete.
+Request: OPTIONS http://localhost:5000/generate
+←[32mINFO←[0m:     127.0.0.1:60979 - "←[1mOPTIONS /generate HTTP/1.1←[0m" ←[32m200 OK←[0m
+Request: POST http://localhost:5000/generate
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+style Casual
+Ты администратор Telegram-канала. Твоя задача: кратко и ярко написать пост в стиле Telegram-канала для данной статьи.Формат:- Заголовок Краткое описание (2–3 предложения)- Почему это важно (список)- Призыв к действию- ХэштегиНе объясняй, что ты делаешь.Не пиши вступлений типа «Хорошо, вот текст».Сразу выдай готовый пост. Стиль текста Casual, использовать емодзи: нет, количесвто текста middle
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+←[32mINFO←[0m:     127.0.0.1:60979 - "←[1mPOST /generate HTTP/1.1←[0m" ←[32m200 OK←[0m
+Request: POST http://localhost:5000/generate
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+style Professional
+Ты администратор Telegram-канала. Твоя задача: кратко и ярко написать пост в стиле Telegram-канала для данной статьи.Формат:- Заголовок Краткое описание (2–3 предложения)- Почему это важно (список)- Призыв к действию- ХэштегиНе объясняй, что ты делаешь.Не пиши вступлений типа «Хорошо, вот текст».Сразу выдай готовый пост. Стиль текста Professional, использовать емодзи: нет, количесвто текста large
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+←[32mINFO←[0m:     127.0.0.1:60981 - "←[1mPOST /generate HTTP/1.1←[0m" ←[32m200 OK←[0m
+Request: POST http://localhost:5000/generate
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+style creative
+Ты администратор Telegram-канала. Твоя задача: кратко и ярко написать пост в стиле Telegram-канала для данной статьи.Формат:- Заголовок Краткое описание (2–3 предложения)- Почему это важно (список)- Призыв к действию- ХэштегиНе объясняй, что ты делаешь.Не пиши вступлений типа «Хорошо, вот текст».Сразу выдай готовый пост. Стиль текста creative, использовать емодзи: нет, количесвто текста large
+✅ /generate вызван с url: https://habr.com/ru/articles/953306/
+←[32mINFO←[0m:     127.0.0.1:61017 - "←[1mPOST /generate HTTP/1.1←[0m" ←[32m200 OK←[0m

@@ -25,7 +25,7 @@ const generatePost = async () => {
   output.value = `Please wait. Generate has started`
 
   try {
-    const res = await fetch("http://localhost:5000/generate", {
+    const res = await fetch("https://postgen-server.onrender.com/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 

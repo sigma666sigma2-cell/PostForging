@@ -48,9 +48,9 @@ const generatePost = async () => {
 <template>
   <div class="page">
     <nav class="topnav">
-      <a class="logo" href="#">Post Crafter</a>
+      <img style="width: 40px; height: 40px; margin: 10px;" src="./np0_icon.svg"></img>
+      <a class="logo" href="#">Neuro Post</a>
     </nav>
-
     <div class="content">
       <div class="col">
         <h2>Generate Perfect Social Posts</h2>

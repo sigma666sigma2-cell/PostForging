@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 208">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Безымянный_градиент_341);
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Mogra-Regular, Mogra;
+        font-size: 60px;
+      }
+    </style>
+    <linearGradient id="_Безымянный_градиент_341" data-name="Безымянный градиент 341" x1="49.99" y1="21.38" x2="150.01" y2="194.62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#171717"/>
+      <stop offset=".06" stop-color="#16181b"/>
+      <stop offset=".13" stop-color="#161c2a"/>
+      <stop offset=".21" stop-color="#162241"/>
+      <stop offset=".29" stop-color="#162c62"/>
+      <stop offset=".38" stop-color="#15388c"/>
+      <stop offset=".47" stop-color="#1546c0"/>
+      <stop offset=".55" stop-color="#1557fc"/>
+      <stop offset=".56" stop-color="#1558ff"/>
+      <stop offset=".59" stop-color="#1351ed"/>
+      <stop offset=".66" stop-color="#0f42bf"/>
+      <stop offset=".76" stop-color="#092876"/>
+      <stop offset=".88" stop-color="#010612"/>
+      <stop offset=".9" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-1" cx="100" cy="108" r="100"/>
+  <text class="cls-2" transform="translate(62.74 123.25)"><tspan x="0" y="0">np</tspan></text>
+</svg>

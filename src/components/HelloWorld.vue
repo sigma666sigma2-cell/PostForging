@@ -113,7 +113,7 @@ const generatePost = async () => {
       </div>
     </div>
     <footer class="bottomInfo">
-      <h3>Post Crafter</h3>
+      <h3>Neuro Post</h3>
       <p>AI-Powered Social Media Content Generator</p>
       <p>© 2025 Copiright</p>
     </footer>

@@ -10,7 +10,7 @@
       .cls-2 {
         fill: #fff;
         font-family: Mogra-Regular, Mogra;
-        font-size: 60px;
+        font-size: 100px;
       }
     </style>
     <linearGradient id="_Безымянный_градиент_341" data-name="Безымянный градиент 341" x1="49.99" y1="21.38" x2="150.01" y2="194.62" gradientUnits="userSpaceOnUse">
@@ -31,5 +31,5 @@
     </linearGradient>
   </defs>
   <circle class="cls-1" cx="100" cy="108" r="100"/>
-  <text class="cls-2" transform="translate(62.74 123.25)"><tspan x="0" y="0">np</tspan></text>
+  <text class="cls-2" transform="translate(37.9 138.75)"><tspan x="0" y="0">np</tspan></text>
 </svg>
